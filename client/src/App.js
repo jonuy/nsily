@@ -1,20 +1,81 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import IlyList from './IlyList';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      note: '',
+      ilies: [],
+    };
+  }
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+        <h2>Naomi says "I love you"</h2>
+        <div>Tap the heart below if Naomi just said "I love you"</div>
+        <textarea
+          id="ily-note"
+          placeholder={'(optional) Reason for the "I love you"'}
+          value={this.state.note}
+          onChange={this.onTextareaChange.bind(this)}
+        />
+        <button onClick={this.onIlyClick.bind(this)}>ILY</button>
+        <div>
+          Logged "I love you"s:
+          <span>{`${this.state.ilies.length}`}</span>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <IlyList ilies={this.state.ilies} />
       </div>
     );
+  }
+
+  componentDidMount() {
+    this.getAndSetIlies();
+  }
+
+  async getAndSetIlies() {
+    const ilies = await this.getIlies();
+    this.setState({ ilies: ilies });
+  }
+
+  onIlyClick(event) {
+    this.onIlyClickAsync();
+  }
+
+  async onIlyClickAsync() {
+    await this.postIly();
+    const ilies = await this.getIlies();
+    this.setState({ ilies: ilies });
+  }
+
+  onTextareaChange(event) {
+    this.setState({ note: event.target.value });
+  }
+
+  async getIlies() {
+    const response = await fetch('/api/ily');
+    const contentType = response.headers.get('content-type');
+    if (contentType && contentType.indexOf('application/json') !== -1) {
+      const ilies = await response.json();
+      console.log(ilies);
+      return ilies;
+    }
+  }
+
+  async postIly() {
+    const response = await fetch('/api/ily', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({ note: this.state.note }),
+    });
+    const ily = await response.json();
+    console.log(ily);
   }
 }
 
