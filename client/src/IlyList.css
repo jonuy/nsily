@@ -1,0 +1,25 @@
+.IlyList {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.IlyList .row {
+  border-top: 1px dotted #333;
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+  width: 480px;
+  max-width: 90%;
+}
+
+.IlyList .row .timestamp {
+  display: flex;
+  width: 50%;
+}
+
+.IlyList .row .note {
+  display: flex;
+  text-align: left;
+  width: 50%;
+}

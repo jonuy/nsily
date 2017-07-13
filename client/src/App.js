@@ -15,18 +15,18 @@ class App extends Component {
     return (
       <div className="App">
         <h2>Naomi says "I love you"</h2>
-        <div>Tap the heart below if Naomi just said "I love you"</div>
-        <textarea
-          id="ily-note"
-          placeholder={'(optional) Reason for the "I love you"'}
-          value={this.state.note}
-          onChange={this.onTextareaChange.bind(this)}
-        />
-        <button onClick={this.onIlyClick.bind(this)}>ILY</button>
-        <div>
-          Logged "I love you"s:
-          <span>{`${this.state.ilies.length}`}</span>
+        <img src="naomi-marah-hair.gif" alt="Naomi Marah gif" />
+        <div>Tap the button below if Naomi just said "I love you"</div>
+        <div className="textarea-container">
+          <textarea
+            placeholder={'(optional) Reason for the "I love you"'}
+            value={this.state.note}
+            onChange={this.onTextareaChange.bind(this)}
+          />
         </div>
+        <button onClick={this.onIlyClick.bind(this)}>ILY</button>
+        <div>Total "I love you"s logged:</div>
+        <div id="ily-count">{`${this.state.ilies.length}`}</div>
         <IlyList ilies={this.state.ilies} />
       </div>
     );

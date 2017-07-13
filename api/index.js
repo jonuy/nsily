@@ -10,7 +10,7 @@ const Ily = require('./ily');
  * Saves an ily
  */
 router.post('/ily', (req, res) => {
-  const ily = new Ily({ note: req.body.note });
+  const ily = new Ily({ note: req.body.note.trim() });
   ily
     .save()
     .then(result => {

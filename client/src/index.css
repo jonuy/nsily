@@ -4,8 +4,9 @@
 }
 
 body {
-  background-color: #C8D4E1;
-  color: #222;
+  background-color: #e0cee8;
+  color: #333;
+  font-size: 16px;
   margin: 0;
   padding: 0;
   font-family: 'Fax Sans Beta',sans-serif;
