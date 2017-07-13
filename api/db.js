@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
-const dbURI = process.env.MONGO_DB_URI || 'mongodb://localhost/nsily';
+const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/nsily';
 
 // Create the database connection
 mongoose.connect(dbURI, { useMongoClient: true });
