@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h2>Naomi says "I love you"</h2>
+        <h2>Naomi says, "I love you"</h2>
         <img src="naomi-marah-hair.gif" alt="Naomi Marah gif" />
         <div>Tap the button below if Naomi just said "I love you"</div>
         <div className="textarea-container">
@@ -48,7 +48,7 @@ class App extends Component {
   async onIlyClickAsync() {
     await this.postIly();
     const ilies = await this.getIlies();
-    this.setState({ ilies: ilies });
+    this.setState({ ilies: ilies, note: '' });
   }
 
   onTextareaChange(event) {
