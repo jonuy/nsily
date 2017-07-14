@@ -5,36 +5,22 @@
 .App h2 {
   font-size: 48px;
   line-height: 1.2em;
-  margin: 60px 20px;
+  margin: 40px 20px;
 }
 
-.App .textarea-container {
-  margin: 20px;
-  text-align: center;
-}
-
-.App button {
-  margin-bottom: 60px;
-  margin-left: 20px;
-  margin-right: 20px;
-  color: #fcfcfc;
-  background-color: #ad235e;
-  border: 2px solid #333;
-  border-radius: 6px;
-  padding: 10px 20px;
+.App h4 {
   font-size: 18px;
-  min-width: 200px;
-  cursor: pointer;
-}
-
-.App button:hover {
-  background-color: #c4709d;
 }
 
 .App img {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   width: 100%;
   max-width: 500px;
+}
+
+.App .textarea-container {
+  margin: 20px 20px 0 20px;
+  text-align: center;
 }
 
 .App textarea {
@@ -47,6 +33,13 @@
   resize: none;
   width: 380px;
   max-width: 90%;
+}
+
+.App .prompt {
+  border-bottom: 1px solid #333;
+  font-size: 18px;
+  padding-bottom: 40px;
+  margin: 0 40px 40px 40px;
 }
 
 .App #ily-count {

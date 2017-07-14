@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Heart from './Heart';
 import IlyList from './IlyList';
 
 class App extends Component {
@@ -11,12 +12,12 @@ class App extends Component {
       ilies: [],
     };
   }
+
   render() {
     return (
       <div className="App">
         <h2>Naomi says, "I love you"</h2>
         <img src="naomi-marah-hair.gif" alt="Naomi Marah gif" />
-        <div>Tap the button below if Naomi just said "I love you"</div>
         <div className="textarea-container">
           <textarea
             placeholder={'(optional) Reason for the "I love you"'}
@@ -24,8 +25,15 @@ class App extends Component {
             onChange={this.onTextareaChange.bind(this)}
           />
         </div>
-        <button onClick={this.onIlyClick.bind(this)}>ILY</button>
-        <div>Total "I love you"s logged:</div>
+        <Heart onClick={this.onIlyClick.bind(this)} />
+        <div className="prompt">
+          Tap the heart
+          {' '}
+          <span role="img" aria-label="heart">❤️</span>
+          {' '}
+          above whenever Naomi says, "I love you"
+        </div>
+        <h4>Total "I love you"s logged:</h4>
         <div id="ily-count">{`${this.state.ilies.length}`}</div>
         <IlyList ilies={this.state.ilies} />
       </div>
